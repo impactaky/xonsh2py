@@ -53,7 +53,7 @@ def convert(string, type=''):
             type = 'python'
         elif re.match(string, '^[./]'):
             type = 'shell'
-        elif subprocess.run(['which', target[0]]).returncode == 0:
+        elif subprocess.run(['which', target[0]], stdout=subprocess.DEVNULL).returncode == 0:
             type = 'shell'
         else :
             type = 'python'
